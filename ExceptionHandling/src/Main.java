@@ -1,11 +1,11 @@
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-
-	public static void main(String[] args) {
+// begin Main
+	public static void main(String[] args) throws FileNotFoundException {
 		Scanner input = new Scanner(System.in);
 		boolean continueInput = true;
 		int key = 0;
@@ -14,9 +14,9 @@ public class Main {
 		System.out.println("Enter 2 for 12.3");
 		System.out.println("Enter 3 for 12.14");
 		key = input.nextInt();
-		switch (key) {
+		switch (key) { // begin switch
 		case 1:
-			do {
+			do { // begin do while
 				try {
 					System.out.println("Enter two integers.");
 					int num1 = input.nextInt();
@@ -29,8 +29,8 @@ public class Main {
 					System.out
 							.println("Error. Input mismatch exception. \rTry again.");
 					input.nextLine();
-				}
-			} while (continueInput);
+				} //end catch
+			} while (continueInput); // end do while
 			break;
 
 		case 2:
@@ -40,7 +40,7 @@ public class Main {
 
 			for (int i = 0; i < array.length; i++) {
 				array[i] = number.nextInt(100) + 1;
-			}
+			} // end for
 			boolean continueInput1 = true;
 			do {
 				try {
@@ -62,32 +62,37 @@ public class Main {
 
 		case 3:
 			boolean continueInput2 = true;
-			do {
-				System.out.println("Playing with files.");
-				File scores = new File(
+			do { // begin do
+				System.out.println("The following data is in scores.txt.");
+				java.io.File file = new java.io.File(
 						"C:\\Users\\Will\\Desktop\\eclipseworkspace\\ExceptionHandling\\scores.txt");
-				Scanner input1 = new Scanner(scores);
-				while(input1.hasNext()){
+				Scanner input1 = new Scanner(file);
+				while (input1.hasNext()) {
 					String firstName = input1.next();
 					String mi = input1.next();
 					String lastName = input1.next();
 					int score = input1.nextInt();
-					System.out.println(firstName + " " + mi + " " + lastName +" " + score);
-				}
+					System.out.println(firstName + " " + mi + " " + lastName
+							+ " " + score);
+				} // end while
 				int total = 0, count = 0, average = 0;
+				// runs infinitely.. why?
 				while (input.hasNext()) {
-				int num = input.nextInt();
-				total += num;
-				count++;
+					int num = input.nextInt();
+					total += num;
+					count++;
 				}// end of while
 				average = total / count;
-				System.out.println("The sum of the " +count+ " scores is: " + total);
-				System.out.println("The average of the " +count+ " scores is: " + average);
+				System.out.println("The sum of the " + count + " scores is: "
+						+ total);
+				System.out.println("The average of the " + count
+						+ " scores is: " + average);
 				input1.close();
-			}// end of do
+				continueInput2 = false;
+			}// end do while
 			while (continueInput2);
-			
+
 			break;
-		}
+		} // end switch
 	}
-}
+} // end main
