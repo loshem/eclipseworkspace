@@ -1,0 +1,29 @@
+import java.util.Random;
+
+
+public class RandomArray {
+	 private static int[] anArray;
+
+	 public static int[] list() {
+		    anArray = new int[100];
+		    for(int i=0;i<anArray.length;i++)
+		    {
+		        anArray[i] = randomFill();
+		    }
+		    return anArray;
+		}
+
+	    public static void print(){
+	        for(int n: anArray){
+	        System.out.println(n+" ");
+	        }
+	    }
+
+
+	    public static int randomFill(){
+
+	    Random rand = new Random();
+	    int randomNum = rand.nextInt();
+	    return randomNum;
+	    }
+}

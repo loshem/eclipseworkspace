@@ -1,0 +1,45 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		boolean continueInput = true;
+		int key = 0;
+		
+		System.out.println("Enter 1 for 12.2");
+		System.out.println("Enter 2 for 12.3");
+		System.out.println("Enter 3 for 12.14");
+		key = input.nextInt();
+		switch (key) {
+		case 1:
+				do{
+					try{
+					System.out.println("Enter two integers.");
+					int num1 = input.nextInt();
+					int num2 = input.nextInt();
+					
+					int result = Math.math(num1, num2);
+					System.out.println(num1 + " + " + num2 + " is " + result);
+					continueInput = false;
+				}
+				catch(InputMismatchException ex){
+					System.out.println("Try again.");
+					input.nextLine();
+				}
+			} while (continueInput);
+		break;
+		
+		
+		case 2:
+		//code_here;
+		break;
+		
+		case 3:
+		//code_here;
+		break;
+		}
+			}
+}
